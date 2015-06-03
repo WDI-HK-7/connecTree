@@ -1,0 +1,22 @@
+app.controller('PostsNewCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+
+
+  $scope.post = {};
+  $scope.form = {};
+
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
+  $scope.form.create = function(){
+    var data = {
+      post: {
+        title : $scope.post.title,
+        caption : $scope.post.caption
+      }
+    };
+
+    $http.post(url + 'posts', data).success(function(response){
+      console.log(response);
+    });
+  };
+}]);
+ 
+  

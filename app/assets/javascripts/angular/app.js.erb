@@ -13,6 +13,14 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     when('/login', {
       templateUrl: "<%= asset_path('users/login.html') %>",
       controller: 'LoginCtrl'
+    }).
+    when('/new_posts', {
+      templateUrl: "<%= asset_path('posts/new.html') %>",
+      controller: 'PostsNewCtrl'
+    }).
+    when('/feed', {
+      templateUrl: "<%= asset_path('feed/index.html') %>",
+      controller: 'FeedCtrl'
     })
 
     // .
