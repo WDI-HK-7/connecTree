@@ -6,9 +6,12 @@
         {{ post.caption }}
      
         <small>
-          {{ post.created_at | date }}
+          {{ post.created_at | date:'MMM-dd-yyyy' }}
         </small>
       </div>
+    </div>
+    <div class="navbar-text">
+      <button ng-click="form.logout()" ng-controller="LoginCtrl" class="btn btn-xs glyphicon glyphicon-log-out" aria-hidden = "true"></button>
     </div>
   </div>
 </div>

@@ -5,7 +5,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post =Post.new(post_params)
+    @post = current_user.posts.new(post_params)
+    # @post =Post.new(post_params)
+    # @post.user_id = current_user.id  // same as above
     if @post.save
       render :json => {message: "saved"}
     else
