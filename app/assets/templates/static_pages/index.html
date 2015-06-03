@@ -1,18 +1,5 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div ng-repeat="post in posts track by $index">
-      <div class="page-header">
-        {{ post.title }}
-        {{ post.caption }}
-    
-
-   
-        <small>
-          {{ post.created_at | date }}
-        </small>
-        <img src="http://placehold.it/350x150">
-         <h4>Picture:  {{ post.picture  }}</h4>
-      </div>
-    </div>
+    <h1> {{ message }} </h1>
   </div>
 </div>
