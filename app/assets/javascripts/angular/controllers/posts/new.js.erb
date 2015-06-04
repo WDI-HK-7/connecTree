@@ -1,22 +1,31 @@
 app.controller('PostsNewCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
 
-
   $scope.post = {};
   $scope.form = {};
+ 
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
-  $scope.form.create = function(){
+
+  $http.get(url + 'current_user.json').success(function(response){
+    console.log(response);
+    $scope.user = response 
+    $location.path('/new_posts');
+  });
+
+  $scope.form.create = function(){  
     var data = {
       post: {
-        title : $scope.post.title,
-        caption : $scope.post.caption
-      }
+        title:    $scope.post.title,
+        caption:  $scope.post.caption,
+      },
+      // user: $scope.user.name 
     };
 
-    $http.post(url + 'posts', data).success(function(response){
+    $http.post(url + 'posts.json', data).success(function(response){
       console.log(response);
     });
   };
 }]);
  
   
+// {name:  "Profile"};

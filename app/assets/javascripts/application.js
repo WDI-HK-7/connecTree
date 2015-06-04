@@ -15,4 +15,5 @@
 //= require underscore/underscore
 //= require angular/angular
 //= require angular-route/angular-route
+//= require angular-fontawesome/dist/angular-fontawesome
 //= require_tree .
