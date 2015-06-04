@@ -3,8 +3,7 @@
     <ul class="sidebar-nav">
       <li class="sidebar-brand"><a href="#">TreeUpdates</a></li>
       <li><a href="/#/new_posts"> {{ user.name }} </a></li>
-      <li><a href="#">Next link</a></li>
-      <li><a href="#">Last link</a></li>
+      <li><a href="#">QL</a></li>
     </ul>
   </div>
   <div id="page-content-wrapper">
@@ -18,12 +17,11 @@
               <form ng-submit="form.create()">
                 <div class="form-group">
                   <label class="connectree-labels">Title:</label>
-                  <fa name="loading" spin ng-style="{'color': checkColor}"></fa>
-                  <input type="text" class="form-control" placeholder="Enter title" ng-model="post.title">
+                  <input type="text" class="form-control" placeholder="Enter title" text-angular ng-model="post.title" text-angular-name="<myEditor>">
                 </div>
                 <div class="form-group">
                   <label class="connectree-labels">Caption</label>
-                  <input type="text" class="form-control" placeholder="Enter category" ng-model="post.caption">
+                  <textarea type="text" class="form-control" rows="6" placeholder="Update your Tree" ng-model="post.caption"></textarea>
                 </div>
                 <button type="submit" class="btn btn-default pull-right connectree-labels">Submit</button>
               </form>

@@ -1,4 +1,4 @@
-app.controller('PostsNewCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+app.controller('PostsNewCtrl', ['$scope', '$http', '$location',s function($scope, $http, $location){
 
   $scope.post = {};
   $scope.form = {};
@@ -22,6 +22,7 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', function($scope,
 
     $http.post(url + 'posts.json', data).success(function(response){
       console.log(response);
+      $scope.post.caption = "";
     });
   };
 }]);

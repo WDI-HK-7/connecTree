@@ -16,4 +16,9 @@
 //= require angular/angular
 //= require angular-route/angular-route
 //= require angular-fontawesome/dist/angular-fontawesome
+//= require textAngular/dist/textAngular-sanitize
+//= require textAngular/dist/textAngular
+//= require textAngular/dist/textAngularSetup 
+//= require rangy/rangy-core
+//= require rangy/rangy-selectionsaverestore
 //= require_tree .
