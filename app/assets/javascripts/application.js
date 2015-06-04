@@ -15,6 +15,9 @@
 //= require underscore/underscore
 //= require angular/angular
 //= require angular-route/angular-route
+//= require ng-file-upload/ng-file-upload
+//= require ng-file-upload/ng-file-upload-shim
+
 //= require angular-fontawesome/dist/angular-fontawesome
 //= require textAngular/dist/textAngular-sanitize
 //= require textAngular/dist/textAngular

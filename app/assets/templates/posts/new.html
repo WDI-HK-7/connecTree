@@ -14,6 +14,9 @@
             <h1>New Update</h1>
             <br>
             <div class="col-xs-7"> 
+              <img ngf-src="picture.files[0]" class="img-responsive image-preview" alt="Placeholder"> 
+              <button class="btn btn-default graf-labels" ngf-select ng-model="picture.files">Upload</button>
+            </div>
               <form ng-submit="form.create()">
                 <div class="form-group">
                   <label class="connectree-labels">Title:</label>

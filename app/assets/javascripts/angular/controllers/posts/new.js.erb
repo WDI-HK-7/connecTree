@@ -1,7 +1,8 @@
-app.controller('PostsNewCtrl', ['$scope', '$http', '$location',s function($scope, $http, $location){
+app.controller('PostsNewCtrl', ['$scope', '$http', '$location', 'Upload', function($scope, $http, $location){
 
   $scope.post = {};
   $scope.form = {};
+  $scope.picture = {};
  
 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
@@ -12,19 +13,41 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location',s function($scope
     $location.path('/new_posts');
   });
 
-  $scope.form.create = function(){  
-    var data = {
-      post: {
-        title:    $scope.post.title,
-        caption:  $scope.post.caption,
-      },
-    };
 
-    $http.post(url + 'posts.json', data).success(function(response){
+  $scope.form.create = function(){
+    var data = {
+      'post[title]'  : $scope.post.title,
+      'post[caption]': $scope.post.caption
+    };
+   
+    Upload.upload({
+      url: url + 'posts',
+      method:'POST',
+      fields: data,
+      file: $scope.picture.files[0],
+      fileFormDataName: 'post[picture]',
+    }).success(function(response){
       console.log(response);
-      $scope.post.caption = "";
     });
+
+     $location.path('/feed');
   };
+    
+  // $scope.form.create = function(){  
+  //   var data = {
+  //     post: {
+  //       title:    $scope.post.title,
+  //       caption:  $scope.post.caption,
+  //     }
+  //   };
+
+  //   $http.post(url + 'posts.json', data).success(function(response){
+  //     console.log(response);
+  //     $scope.post.caption = "";
+  //   });
+  // };
+
+
 }]);
  
   
