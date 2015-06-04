@@ -18,7 +18,6 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', function($scope,
         title:    $scope.post.title,
         caption:  $scope.post.caption,
       },
-      // user: $scope.user.name 
     };
 
     $http.post(url + 'posts.json', data).success(function(response){
@@ -28,4 +27,3 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', function($scope,
 }]);
  
   
-// {name:  "Profile"};

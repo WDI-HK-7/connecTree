@@ -1,37 +1,37 @@
 <div id="wrapper">
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-          <li class="sidebar-brand"><a href="#">TreeUpdates</a></li>
-          <li><a> {{ user.name }} </a></li>
-          <li><a href="#">Next link</a></li>
-          <li><a href="#">Last link</a></li>
-        </ul>
-    </div>
-    <div id="page-content-wrapper">
-      <div class="page-content">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <h1>New Update</h1>
-              <br>
-              <div class="col-xs-7"> 
-                <form ng-submit="form.create()">
-                  <div class="form-group">
-                    <label class="connectree-labels">Title:</label>
-                    <fa name="loading" spin ng-style="{'color': checkColor}"></fa>
-                    <input type="text" class="form-control" placeholder="Enter title" ng-model="post.title">
-                  </div>
-                  <div class="form-group">
-                    <label class="connectree-labels">Caption</label>
-                    <input type="text" class="form-control" placeholder="Enter category" ng-model="post.caption">
-                  </div>
-                  <button type="submit" class="btn btn-default pull-right connectree-labels">Submit</button>
-                </form>
-              </div>
+  <div id="sidebar-wrapper">
+    <ul class="sidebar-nav">
+      <li class="sidebar-brand"><a href="#">TreeUpdates</a></li>
+      <li><a href="/#/new_posts"> {{ user.name }} </a></li>
+      <li><a href="#">Next link</a></li>
+      <li><a href="#">Last link</a></li>
+    </ul>
+  </div>
+  <div id="page-content-wrapper">
+    <div class="page-content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1>New Update</h1>
+            <br>
+            <div class="col-xs-7"> 
+              <form ng-submit="form.create()">
+                <div class="form-group">
+                  <label class="connectree-labels">Title:</label>
+                  <fa name="loading" spin ng-style="{'color': checkColor}"></fa>
+                  <input type="text" class="form-control" placeholder="Enter title" ng-model="post.title">
+                </div>
+                <div class="form-group">
+                  <label class="connectree-labels">Caption</label>
+                  <input type="text" class="form-control" placeholder="Enter category" ng-model="post.caption">
+                </div>
+                <button type="submit" class="btn btn-default pull-right connectree-labels">Submit</button>
+              </form>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
