@@ -1,4 +1,4 @@
-app.controller('PostsNewCtrl', ['$scope', '$http', '$location', 'Upload', function($scope, $http, $location, Upload){
+app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', 'Upload', function($scope, $http, $location, $routeParams, Upload){
 
   $scope.post = {};
   $scope.form = {};
@@ -11,7 +11,12 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', 'Upload', functi
     console.log(response);
     $scope.user = response 
     $location.path('/new_posts');
+    $http.get(url + 'users/'+response.id+'/posts.json').success(function(response){
+      console.log(response);
+      $scope.posts = response;
+    });
   });
+
 
 
   $scope.form.create = function(){
@@ -30,23 +35,9 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', 'Upload', functi
       console.log(response);
     });
 
-     $location.path('/feed');
+     // $location.path('/feed');
   };
     
-  // $scope.form.create = function(){  
-  //   var data = {
-  //     post: {
-  //       title:    $scope.post.title,
-  //       caption:  $scope.post.caption,
-  //     }
-  //   };
-
-  //   $http.post(url + 'posts.json', data).success(function(response){
-  //     console.log(response);
-  //     $scope.post.caption = "";
-  //   });
-  // };
-
 
 }]);
  

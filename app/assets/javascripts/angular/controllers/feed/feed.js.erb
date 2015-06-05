@@ -13,6 +13,11 @@ app.controller('FeedCtrl', ['$scope', '$http', '$location', function($scope, $ht
     $scope.posts = response;
   });
 
+  $scope.picInfo = function(id){
+    console.log('working');
+    $location.path('/posts/' + id);
+  }
+
   
 
 }]);

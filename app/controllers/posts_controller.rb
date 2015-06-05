@@ -55,6 +55,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def userfeed
+    @posts = current_user.posts
+    render :json => @posts 
+  end
+
   def post_params
     params.require(:post).permit(:title, :caption, :picture, :video)
   end
