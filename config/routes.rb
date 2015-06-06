@@ -11,6 +11,11 @@ Rails.application.routes.draw do
 
   get '/current_user', to: 'users#current' #users is the controller, current is the method
   get '/users/:id/posts', to: 'posts#userfeed'
+
+  # devise_scope :user do
+  #   get "posts", to: "posts#userfeed"
+  # end
+  
   get '/*path' => 'static_pages#index'
 
 end

@@ -1,7 +1,7 @@
 <div id="wrapper">
   <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
-      <li class="sidebar-brand"><a href="#">TreeUpdates</a></li>
+      <li class="sidebar-brand"><a href="/#/feed">TreeUpdates</a></li>
       <li><a href="/#/new_posts"> {{ user.name }} </a></li>
       <li><a href="#">QL</a></li>
     </ul>
@@ -9,42 +9,45 @@
   <div id="page-content-wrapper">
     <div class="page-content">
       <div class="container">
-        <div class="row">
-          <div class="col-md-12 elliiiaa">
-            <div ng-repeat="post in posts track by $index">
-              <div class="page-header">
+        <ul class="timeline">
+          <li ng-class="$index % 2 == 0 ? '' : 'timeline-inverted'" ng-repeat="post in posts track by $index">
+            <div ng-class="$index % 2 == 0 ? 'timeline-badge' : 'timeline-badge warning'"><i class="glyphicon glyphicon-tree-deciduous"></i></div>
+            <div class="timeline-panel">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">{{ post.title }}</h4>
+                <p><small class="text-muted"><i class="glyphicon glyphicon-leaf"></i> {{ post.created_at | date:'MMM-dd-yyyy' }}</small></p>
+              </div>
+              <div class="timeline-body">
                 <img ng-src="{{ post.picture }}" ng-click ="picInfo(post.id)" class="img-responsive">
-                {{ post.title   }}
                 {{ post.caption }}
-             
-                <small>
-                  {{ post.created_at | date:'MMM-dd-yyyy' }}
-                </small>
               </div>
             </div>
-            <h1>New Update</h1>
-            <br>
-            <div class="col-xs-7"> 
-              <img ngf-src="picture.files[0]" class="img-responsive image-preview" alt="Placeholder"> 
-              <button class="btn btn-default graf-labels" ngf-select ng-model="picture.files">Upload</button>
-            </div>
-              <form ng-submit="form.create()">
-                <div class="form-group">
-                  <label class="connectree-labels">Title:</label>
-                  <input type="text" class="form-control" placeholder="Enter title" text-angular ng-model="post.title" text-angular-name="<myEditor>">
-                </div>
-                <div class="form-group">
-                  <label class="connectree-labels">Caption</label>
-                  <textarea type="text" class="form-control" rows="6" placeholder="Update your Tree" ng-model="post.caption"></textarea>
-                </div>
-                <button type="submit" class="btn btn-default pull-right connectree-labels">Submit</button>
-              </form>
-            </div>
-          </div>
+          </li>
+        </ul>
+        <h1>New Update</h1>
+        <br>
+
+        
+        <div class="col-xs-7"> 
+          <img ngf-src="picture.files[0]" class="img-responsive image-preview" alt="Placeholder"> 
+          <button class="btn btn-default graf-labels" ngf-select ng-model="picture.files">Upload</button>
         </div>
+        <form ng-submit="form.create()">
+          <div class="form-group">
+            <label class="connectree-labels">Title:</label>
+            <input type="text" class="form-control" placeholder="Enter title" text-angular ng-model="post.title" text-angular-name="<myEditor>">
+          </div>
+          <div class="form-group">
+            <label class="connectree-labels">Caption</label>
+            <textarea type="text" class="form-control" rows="6" placeholder="Update your Tree" ng-model="post.caption"></textarea>
+          </div>
+          <button type="submit" class="btn btn-default pull-right connectree-labels">Submit</button>
+        </form>
       </div>
     </div>
-  </div>
+  </div>  
 </div>
+      
+    
 
 
