@@ -1,52 +1,68 @@
-<div id="wrapper">
-  <div id="sidebar-wrapper">
-    <ul class="sidebar-nav">
-      <li class="sidebar-brand"><a href="/#/feed">TreeUpdates</a></li>
-      <li><a href="/#/new_posts"> {{ user.name }} </a></li>
-      <li><a href="#">QL</a></li>
-    </ul>
-  </div>
-  <div id="page-content-wrapper">
-    <div class="page-content">
-      <div class="container">
-        <ul class="timeline">
-          <li ng-class="$index % 2 == 0 ? '' : 'timeline-inverted'" ng-repeat="post in posts track by $index">
-            <div ng-class="$index % 2 == 0 ? 'timeline-badge' : 'timeline-badge warning'"><i class="glyphicon glyphicon-tree-deciduous"></i></div>
-            <div class="timeline-panel">
-              <div class="timeline-heading">
-                <h4 class="timeline-title">{{ post.title }}</h4>
-                <p><small class="text-muted"><i class="glyphicon glyphicon-leaf"></i> {{ post.created_at | date:'MMM-dd-yyyy' }}</small></p>
-              </div>
-              <div class="timeline-body">
-                <img ng-src="{{ post.picture }}" ng-click ="picInfo(post.id)" class="img-responsive">
-                {{ post.caption }}
-              </div>
-            </div>
-          </li>
-        </ul>
-        <h1>New Update</h1>
-        <br>
-
-        
-        <div class="col-xs-7"> 
-          <img ngf-src="picture.files[0]" class="img-responsive image-preview" alt="Placeholder"> 
-          <button class="btn btn-default graf-labels" ngf-select ng-model="picture.files">Upload</button>
-        </div>
-        <form ng-submit="form.create()">
-          <div class="form-group">
-            <label class="connectree-labels">Title:</label>
-            <input type="text" class="form-control" placeholder="Enter title" text-angular ng-model="post.title" text-angular-name="<myEditor>">
-          </div>
-          <div class="form-group">
-            <label class="connectree-labels">Caption</label>
-            <textarea type="text" class="form-control" rows="6" placeholder="Update your Tree" ng-model="post.caption"></textarea>
-          </div>
-          <button type="submit" class="btn btn-default pull-right connectree-labels">Submit</button>
-        </form>
+<div class="navbar navbar-default navbar-fixed-top" id="header">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/#/gallery">ConnecTree</a>
+    </div>
+    <div class=" pull-right collapse navbar-collapse" id="#bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/gallery">TreeUpdates</a></li>
+        <li><a href="#/new_posts">{{ user.name }}</a></li>
+      </ul>
+      <div class="navbar-text">
+        <button ng-click="form.logout()" ng-controller="LoginCtrl" class="btn btn-xs glyphicon glyphicon-log-out" aria-hidden = "true"></button>
       </div>
     </div>
-  </div>  
+  </div>
 </div>
+
+
+
+<div class="page-content">
+  <div class="container" id="timeline-container">
+    <ul class="timeline">
+      <li ng-class="$index % 2 == 0 ? '' : 'timeline-inverted'" ng-repeat="post in posts track by $index">
+        <div ng-class="$index % 2 == 0 ? 'timeline-badge' : 'timeline-badge warning'"><i class="glyphicon glyphicon-tree-deciduous"></i></div>
+        <div class="timeline-panel" style="background: -webkit-gradient(radial, -27 32, 0, 297 -257, 465, from(rgba(247, 252, 203, 0.82)), to(rgba(219, 247, 249, 0.82)));}">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">{{ post.title }} <bold>{{ user.name }}</bold></h4>
+            <p><small class="text-muted"><i class="glyphicon glyphicon-leaf"></i> {{ post.created_at | date:'MMM-dd-yyyy' }}</small></p>
+          </div>
+          <div class="timeline-body">
+            <img ng-src="{{ post.picture }}" ng-click ="picInfo(post.id)" class="img-responsive">
+            {{ post.caption }}
+          </div>
+        </div>
+      </li>
+    </ul>
+    <h1 id="pageTitle">New Update</h1>
+    <br>
+
+    
+    <form ng-submit="form.create()" id="createNewPost">
+      <div class="form-group">
+        <label class="connectree-labels">Caption Title</label>
+        <input type="text" class="form-control" placeholder="Enter title" text-angular ng-model="post.title" text-angular-name="<myEditor>">
+      </div>
+      <div class="form-group">
+        <label class="connectree-labels">Caption</label>
+        <textarea type="text" class="form-control" rows="6" placeholder="Update your Tree" ng-model="post.caption"></textarea>
+      </div>
+      <button class="btn btn-default glyphicon glyphicon-picture" ngf-select ng-model="picture.files" id="upload-panel"> Upload</button>
+      <button type="submit" class="btn btn-default pull-right connectree-labels">Submit</button>
+      <div class="col-xs-7"> 
+        <img ngf-src="picture.files[0]" class="img-responsive image-preview" alt="Placeholder"> 
+      </div>
+    </form>
+  </div>
+</div>
+ 
+
       
     
 

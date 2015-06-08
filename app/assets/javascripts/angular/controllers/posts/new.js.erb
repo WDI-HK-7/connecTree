@@ -17,6 +17,15 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', 
     });
   });
 
+  $http.get(url + 'posts').success(function(response){
+    console.log(response);
+    $scope.posts = response;
+  });
+  
+  $scope.picInfo = function(id){
+    console.log('working');
+    $location.path('/posts/' + id);
+  };
 
 
   $scope.form.create = function(){
@@ -35,7 +44,7 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', 
       console.log(response);
     });
 
-     // $location.path('/feed');
+     
   };
     
 
