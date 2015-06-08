@@ -28,7 +28,7 @@
         <div ng-class="$index % 2 == 0 ? 'timeline-badge' : 'timeline-badge info'"><i class="glyphicon glyphicon-tree-deciduous"></i></div>
         <div class="timeline-panel" id ="color" style="background: -webkit-gradient(radial, -27 32, 0, 297 -257, 465, from(rgba(247, 252, 203, 0.82)), to(rgba(219, 247, 249, 0.82)));}">
           <div class="timeline-heading">
-            <h4 class ="author"><bold>{{ user.name }}</bold></h4>
+            <h4 class ="author"><bold>{{ post.user_name }}</bold></h4>
             
             <p><small class="text-muted"><i class="glyphicon glyphicon-leaf"></i> {{ post.created_at | date:'MMM-dd-yyyy' }}</small></p>
           </div>
