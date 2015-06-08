@@ -1,0 +1,23 @@
+app.controller('FeedCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
+
+  $http.get(url + 'current_user.json').success(function(response){
+    console.log(response);
+    $scope.user = response 
+    // $location.path('/new_posts');
+  });
+
+  $http.get(url + 'posts').success(function(response){
+    console.log(response);
+    $scope.posts = response;
+  });
+
+  $scope.picInfo = function(id){
+    console.log('working');
+    $location.path('/posts/' + id);
+  }
+
+  
+
+}]);

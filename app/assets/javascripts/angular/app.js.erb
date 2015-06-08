@@ -1,0 +1,36 @@
+'use strict'; // Make sure you don't have syntax errors
+
+// var app = angular.module('appName', ['oneDependency']);
+var app = angular.module('connectree', ['ngRoute', 'ngFileUpload', 'picardy.fontawesome', 'textAngular']);
+
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  // Configure Angular Routes
+  $routeProvider.
+    when('/', {
+      templateUrl: "<%= asset_path('static_pages/index.html') %>",
+      controller: 'StaticPagesCtrl'
+    }).
+     when('/signup', {
+      templateUrl: "<%= asset_path('users/signup.html') %>",
+      controller:'SignUpCtrl'
+    }).
+    when('/login', {
+      templateUrl: "<%= asset_path('users/login.html') %>",
+      controller: 'LoginCtrl'
+    }).
+    when('/new_posts', {
+      templateUrl: "<%= asset_path('posts/new.html') %>",
+      controller: 'PostsNewCtrl'
+    }).
+    when('/feed', {
+      templateUrl: "<%= asset_path('feed/index.html') %>",
+      controller: 'FeedCtrl'
+    })
+
+    .
+    otherwise({
+      redirectTo: '/login'
+    });
+
+    // $locationProvider.html5Mode(true);
+}]);
