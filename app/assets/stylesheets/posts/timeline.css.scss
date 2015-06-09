@@ -4,8 +4,8 @@
   position: absolute;
   width: 100%;
   left: 0;
-  padding-left: 300px;
-  padding-right: 300px;
+  padding-left: 30px;
+  padding-right: 30px;
   border-top-width: 101px;
   margin-top: 64px;
 }
@@ -114,6 +114,7 @@
   border-top-left-radius: 50%;
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
+  font-family: 'Rock Salt', cursive;
 }
 
 .timeline > li.timeline-inverted > .timeline-panel {
@@ -208,8 +209,6 @@
   background: -webkit-gradient(radial, -27 32, 0, 297 -257, 465, from(rgba(247, 252, 203, 0.82)), to(rgba(219, 247, 249, 0.82))) !important;
 }
 
-.polaroid {
-  background-image: url('polaroid.png');
-  background-repeat: no-repeat;
-  height: 300px;
+.author {
+  font-family: 'Rock Salt', cursive;
 }
