@@ -1,5 +1,5 @@
 <div class="navbar navbar-default navbar-fixed-top" id="header">
-  <div class="container-fluid">
+  <div class="container-fluid" id= "nav-style">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -7,11 +7,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/#/gallery">ConnecTree</a>
+      <a class="navbar-brand" href="/#/feed">ConnecTree</a>
     </div>
     <div class=" pull-right collapse navbar-collapse" id="#bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#/gallery">TreeUpdates</a></li>
+        <li class="active"><a href="/#/feed">TreeUpdates</a></li>
         <li><a href="#/new_posts">{{ user.name }}</a></li>
       </ul>
       <div class="navbar-text">
@@ -33,8 +33,9 @@
             <p><small class="text-muted"><i class="glyphicon glyphicon-leaf"></i> {{ post.created_at | date:'MMM-dd-yyyy' }}</small></p>
           </div>
           <div class="timeline-body">
+            <img ng-src="{{ post.picture }}" ng-click ="picInfo(post.id)" class="img-responsive" ng-hide="post.picture == '/pictures/original/missing.png' || post.picture == '' || post.picture == null"><br>
 
-            <img ng-src="{{ post.picture }}" ng-click ="picInfo(post.id)" class="img-responsive"><br><h4 class="timeline-title">{{ post.title }}</h4>
+            <h4 class="timeline-title">{{ post.title }}</h4>
             {{ post.caption }}
           </div>
         </div>

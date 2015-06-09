@@ -6,8 +6,6 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    # @post =Post.new(post_params)
-    # @post.user_id = current_user.id  // same as above
     if @post.save
       render :json => {message: "saved"}
     else
@@ -57,7 +55,7 @@ class PostsController < ApplicationController
 
   def userfeed
     @posts = current_user.posts
-    render :json => @posts 
+    render "index"
   end
 
   def post_params

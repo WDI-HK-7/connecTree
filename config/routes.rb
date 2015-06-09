@@ -7,10 +7,10 @@ Rails.application.routes.draw do
 
   root 'static_pages#index'
 
-  resources :posts, :only => [:create, :show, :index, :destroy, :update, :current]  
+  resources :posts, :only => [:create, :show, :index, :destroy, :update]
 
-  get '/current_user', to: 'users#current' #users is the controller, current is the method
-  get '/users/:id/posts', to: 'posts#userfeed'
+  get '/current_user',       to: 'users#current' #users is the controller, current is the method
+  get '/current_user/posts', to: 'posts#userfeed' #users is the controller, current is the method
 
   # devise_scope :user do
   #   get "posts", to: "posts#userfeed"

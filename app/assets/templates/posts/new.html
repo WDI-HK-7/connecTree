@@ -1,5 +1,5 @@
 <div class="navbar navbar-default navbar-fixed-top" id="header">
-  <div class="container-fluid">
+  <div class="container-fluid" id="nav-style">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
@@ -7,12 +7,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/#/gallery">ConnecTree</a>
+      <a class="navbar-brand" href="/#/feed">ConnecTree</a>
     </div>
     <div class=" pull-right collapse navbar-collapse" id="#bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#/gallery">TreeUpdates</a></li>
-        <li><a href="#/new_posts">{{ user.name }}</a></li>
+        <li><a href="/#/feed">TreeUpdates</a></li>
+        <li class="active"><a href="#/new_posts">{{ user.name }}</a></li>
       </ul>
       <div class="navbar-text">
         <button ng-click="form.logout()" ng-controller="LoginCtrl" class="btn btn-xs glyphicon glyphicon-log-out" aria-hidden = "true"></button>
@@ -25,25 +25,29 @@
 
 <div class="page-content">
   <div class="container" id="timeline-container">
-    <ul class="timeline">
+     <ul class="timeline">
       <li ng-class="$index % 2 == 0 ? '' : 'timeline-inverted'" ng-repeat="post in posts track by $index">
-        <div ng-class="$index % 2 == 0 ? 'timeline-badge' : 'timeline-badge warning'"><i class="glyphicon glyphicon-tree-deciduous"></i></div>
-        <div class="timeline-panel" style="background: -webkit-gradient(radial, -27 32, 0, 297 -257, 465, from(rgba(247, 252, 203, 0.82)), to(rgba(219, 247, 249, 0.82)));}">
+        <div ng-class="$index % 2 == 0 ? 'timeline-badge' : 'timeline-badge info'"><i class="glyphicon glyphicon-tree-deciduous"></i></div>
+        <div class="timeline-panel" id ="color" style="background: -webkit-gradient(radial, -27 32, 0, 297 -257, 465, from(rgba(247, 252, 203, 0.82)), to(rgba(219, 247, 249, 0.82)));}">
           <div class="timeline-heading">
-            <h4 class="timeline-title">{{ post.title }} <bold>{{ user.name }}</bold></h4>
+            <h4 class ="author"><bold>{{ post.user_name }}</bold></h4>
+            
             <p><small class="text-muted"><i class="glyphicon glyphicon-leaf"></i> {{ post.created_at | date:'MMM-dd-yyyy' }}</small></p>
           </div>
           <div class="timeline-body">
-            <img ng-src="{{ post.picture }}" ng-click ="picInfo(post.id)" class="img-responsive">
+            <img ng-src="{{ post.picture }}" ng-click ="picInfo(post.id)" class="img-responsive" ng-hide="post.picture == '/pictures/original/missing.png' || post.picture == '' || post.picture == null"><br>
+
+            <h4 class="timeline-title">{{ post.title }}</h4>
             {{ post.caption }}
           </div>
         </div>
       </li>
     </ul>
+
+
     <h1 id="pageTitle">New Update</h1>
     <br>
 
-    
     <form ng-submit="form.create()" id="createNewPost">
       <div class="form-group">
         <label class="connectree-labels">Caption Title</label>

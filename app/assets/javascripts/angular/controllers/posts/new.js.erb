@@ -8,20 +8,13 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', 
   var url = "<%= ENV['URL'] %>" || "http://localhost:3000/";
 
   $http.get(url + 'current_user.json').success(function(response){
-    console.log(response);
     $scope.user = response 
     $location.path('/new_posts');
-    $http.get(url + 'users/'+response.id+'/posts.json').success(function(response){
-      console.log(response);
+    $http.get(url + '/current_user/posts').success(function(response){
       $scope.posts = response;
     });
   });
 
-  $http.get(url + 'posts').success(function(response){
-    console.log(response);
-    $scope.posts = response;
-  });
-  
   $scope.picInfo = function(id){
     console.log('working');
     $location.path('/posts/' + id);
@@ -29,25 +22,38 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', 
 
 
   $scope.form.create = function(){
-    var data = {
-      'post[title]'  : $scope.post.title,
-      'post[caption]': $scope.post.caption
-    };
-   
-    Upload.upload({
-      url: url + 'posts',
-      method:'POST',
-      fields: data,
-      file: $scope.picture.files[0],
-      fileFormDataName: 'post[picture]',
-    }).success(function(response){
-      console.log(response);
-    });
 
-     
+    if ($scope.picture.files == null) {
+
+      var data = {
+        'post': {
+          'title'  : $scope.post.title,
+          'caption': $scope.post.caption          
+        }
+      };
+
+      $http.post(url + 'posts', data)
+        .success(function(data, status, headers, config){
+          $scope.posts = data;
+        });  
+
+    } else {
+      var data = {
+        'post[title]'  : $scope.post.title,
+        'post[caption]': $scope.post.caption
+      };
+
+      Upload.upload({
+        url: url + 'posts',
+        method:'POST',
+        fields: data,
+        file: $scope.picture.files,
+        fileFormDataName: 'post[picture]',
+      }).success(function(response){
+        // TO BE DONE: redirect to feed?
+        console.log(response);
+      });
+
+    }
   };
-    
-
 }]);
- 
-  
