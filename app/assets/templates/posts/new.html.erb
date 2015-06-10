@@ -17,7 +17,7 @@
         <li class="active"><a href="#/new_posts">{{ user.name }}</a></li>
       </ul>
       <div class="navbar-text">
-        <button ng-click="form.logout()" ng-controller="LoginCtrl" class="btn btn-xs glyphicon glyphicon-log-out" aria-hidden = "true"></button>
+        <button id="logout-btn" ng-click="form.logout()" ng-controller="LoginCtrl" class="btn btn-xs glyphicon glyphicon-log-out" aria-hidden = "true"></button>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@
      <ul class="timeline col-xs-12">
       <li ng-class="$index % 2 == 0 ? '' : 'timeline-inverted'" ng-repeat="post in posts track by $index">
         <div ng-class="$index % 2 == 0 ? 'timeline-badge' : 'timeline-badge info'"><i class="glyphicon glyphicon-tree-deciduous"></i></div>
-        <div class="timeline-panel" id ="color" style="background: -webkit-gradient(radial, -27 32, 0, 297 -257, 465, from(rgba(247, 252, 203, 0.82)), to(rgba(219, 247, 249, 0.82)));}">
+        <div class="timeline-panel" id ="color">
           <div class="timeline-heading">
             <h4 class ="author"><bold>{{ post.user_name }}</bold></h4>
             

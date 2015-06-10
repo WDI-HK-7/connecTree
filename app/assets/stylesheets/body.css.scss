@@ -1,15 +1,23 @@
 body {
   background: image-url("logo.jpg" ) no-repeat center center fixed;
   background-size: cover; 
-  font-family: 'Handlee', cursive !important;
+  font-family: 'Exo', sans-serif !important;
+  color: black;
   // width: 100vw;
   // height: 100vh;
 }
 
 #nav-style {
   background-color: beige;
+  font-size: 17px;
+  color: black;
 }
 
 .login-label {
   font-size: 30px !important;
+}
+
+#logout-btn {
+  color: black;
+  background-color: transparent;
 }

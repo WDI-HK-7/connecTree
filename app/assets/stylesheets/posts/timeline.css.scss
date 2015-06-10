@@ -69,8 +69,7 @@
   position: relative;
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
-  border: 4px dashed  #d1d1a3;
-  box-shadow: 0 0 0 8px #758a54;
+  
 }
 
 .timeline > li > .timeline-panel:before {
@@ -206,9 +205,12 @@
 }
 
 #color {
-  background: -webkit-gradient(radial, -27 32, 0, 297 -257, 465, from(rgba(247, 252, 203, 0.82)), to(rgba(219, 247, 249, 0.82))) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+background: rgba(255, 255, 255, 0.9) !important;
+
+
 }
 
 .author {
-  font-family: 'Rock Salt', cursive;
+  font-family: 'Exo', sans-serif;
 }
