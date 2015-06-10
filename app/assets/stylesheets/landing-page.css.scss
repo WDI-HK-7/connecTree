@@ -8,10 +8,11 @@
 
 #welcome-title{
   font-family: 'Rock Salt', cursive !important;
+  font-size: 60px;
 }
 
 #home {
- background: image-url('landing-page-pic.jpg') no-repeat center center fixed; 
+ background: image-url('logo.png') no-repeat center center fixed; 
  background-size: cover;
  font-size: 23px;
  height: 100vh;
@@ -24,12 +25,13 @@ a {
 }
 
 #enter {
-  color: #d4aa88 !important;
+  color: #fff !important;
   text-align: center !important;
-  margin-top: 5%;
+  // margin-top: 5%;
   text-shadow: 0px -1px 5px #c2e0bc;
-  margin-bottom: 5%;
+  // margin-bottom: 5%;
   text-decoration: none !important;
+  // margin-top: 20%;
 }
 
 #summary {
