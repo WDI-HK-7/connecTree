@@ -1,0 +1,35 @@
+
+#homePage {
+  color: whitesmoke;
+  text-shadow: 5px 5px 5px #000000;
+  // margin-top: 10%;
+}
+
+
+#welcome-title{
+  font-family: 'Rock Salt', cursive !important;
+}
+
+#home {
+ background: url('landing-page-pic.jpg') no-repeat center center fixed; 
+ background-size: cover;
+ font-size: 23px;
+ height: 100vh;
+
+}
+
+a {
+  color: inherit !important;
+}
+
+#enter {
+  color: #d4aa88 !important;
+  text-align: center !important;
+  margin-top: 5%;
+  text-shadow: 0px -1px 5px #c2e0bc;
+  margin-bottom: 5%;
+}
+
+#summary {
+  width:800px;
+}
