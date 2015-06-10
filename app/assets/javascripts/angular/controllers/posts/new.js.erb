@@ -34,7 +34,7 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', 
 
       $http.post(url + 'posts', data)
         .success(function(data, status, headers, config){
-          $scope.posts = data;
+          $scope.posts.unshift(data);
         });  
 
     } else {
@@ -50,6 +50,9 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', 
         file: $scope.picture.files,
         fileFormDataName: 'post[picture]',
       }).success(function(response){
+
+        $scope.posts.unshift(response);
+
         // TO BE DONE: redirect to feed?
         console.log(response);
       });
