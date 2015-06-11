@@ -17,6 +17,7 @@
 //= require angular-route/angular-route
 //= require ng-file-upload/ng-file-upload
 //= require ng-file-upload/ng-file-upload-shim
+//= require bootstrap-sprockets
 
 //= require angular-fontawesome/dist/angular-fontawesome
 //= require textAngular/dist/textAngular-sanitize

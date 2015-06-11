@@ -1,31 +1,33 @@
 #boxed {
-  margin-left: 470px !important;
-  margin-top: 100px !important;
   background-color: rgba(245, 245, 245, 0.59) !important;
   margin-top: 167px !important;
   border: 4px dashed  #d1d1a3;
   box-shadow: 0 0 0 8px #758a54;
-
 }
+
 .log {
   background-color: rgba(245, 245, 245, 0.59) !important;
   margin-top: 167px !important;
+  margin-bottom: 10% !important;
   border: 4px dashed  #d1d1a3;
   box-shadow: 0 0 0 8px #758a54;
 }
 
 h1 {
   text-align: center;
-  font-family: -webkit-pictograph !important;
+  font-family: 'Rock Salt', cursive;
 }
 
-.signup-text {
- border:0 solid #fff; 
- border-bottom-width:1px;
- padding-bottom:10px;
- text-align: center;
- font-style: bold;
+.signup-text, .login-text {
+  border: 0 solid #fff;
+  padding-bottom: 10px;
+  text-align: center;
+  font-family: 'Rock Salt', cursive;
+  text-shadow: 5px 5px 5px #ffffff;}
 
+.signup {
+  text-align: center;
+  font-size: 28px;
 }
 
 #submitBtn  {
@@ -33,18 +35,45 @@ h1 {
   border-color: transparent;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 15px;
+  font-size: 24px;
 }
+
+#title {
+  font-family: 'Rock Salt', cursive;
+}
+
 
 label {
   font-size: 20px !important;
 }
 
 #loginbtn {
- background-color: #758a54;
+  background-color: #758a54;
   border-color: transparent;
   margin-bottom: 20px;
   text-align: center;
-  font-size: 15px;
+  font-size: 24px;
 }
 
+.center_div {
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+
+#tree {
+  display: block;
+  margin: auto;
+  width: 150px;
+  height: 153px;
+  margin-top: 20px;
+}
+
+.glyphicon-override {
+  top: 47px !important;
+}
+
+
+.form-control {
+  font-size: 22px !important;
+}

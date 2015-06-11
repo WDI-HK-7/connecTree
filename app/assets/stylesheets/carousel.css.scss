@@ -1,0 +1,29 @@
+.tales {
+  width: 100%;
+}
+.carousel-inner{
+  width:100%;
+  max-height: 800px !important;
+}
+
+#myCarousel{
+  height: 596px;
+  display: block;
+  padding-left: 0px;
+  padding-right: 0px;
+} 
+
+#tree-carousel {
+  height: 100px;
+  width: 100px;
+  background: rgb(137, 230, 153);
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  border-radius: 100px;
+}
+
+.container-fluid {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  width: 100%;  
+}

@@ -1,4 +1,4 @@
-app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', 'Upload', function($scope, $http, $location, $routeParams, Upload){
+app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', '$anchorScroll', 'Upload', function($scope, $http, $location, $routeParams, $anchorScroll, Upload){
 
   $scope.post = {};
   $scope.form = {};
@@ -34,7 +34,12 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', 
 
       $http.post(url + 'posts', data)
         .success(function(data, status, headers, config){
-          $scope.posts = data;
+          $scope.posts.unshift(data);
+          console.log($scope.post.title)
+          $scope.post.title = null;
+          $scope.post.caption = null;
+          $location.hash('timeline');
+          $anchorScroll();
         });  
 
     } else {
@@ -50,10 +55,20 @@ app.controller('PostsNewCtrl', ['$scope', '$http', '$location', '$routeParams', 
         file: $scope.picture.files,
         fileFormDataName: 'post[picture]',
       }).success(function(response){
+
+        $scope.posts.unshift(response);
+
+        // $scope.postForm.$setPristine();
         // TO BE DONE: redirect to feed?
         console.log(response);
+        $scope.post.title = null;
+        $scope.post.caption = null;
+        $scope.post.picture.files = null;
+        $location.hash('timeline');
+        $anchorScroll();
       });
 
     }
+
   };
 }]);

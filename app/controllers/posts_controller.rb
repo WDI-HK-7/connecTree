@@ -1,20 +1,20 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @posts = Post.order(:created_at).includes(:user)
+    @posts = Post.order(:created_at).reverse_order.includes(:user)
   end
 
   def create
     @post = current_user.posts.new(post_params)
     if @post.save
-      render :json => {message: "saved"}
+      # render :json => @post 
     else
       render :json => {message: "not saved"}
     end
   end
 
   def show
-    @post = Post.includes(:comments).find(params[:id])
+    @post = Post.order(:created_at).reverse_order.includes(:comments).find(params[:id])
 
     if @post.nil?
       render :json => {message: "Cannot find post with id=#{params[:id]}"}
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
   end
 
   def userfeed
-    @posts = current_user.posts
+    @posts = current_user.posts.reverse_order
     render "index"
   end
 

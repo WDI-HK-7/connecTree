@@ -1,0 +1,50 @@
+
+#homePage {
+  color: #AABBCC;
+  text-shadow: 5px 5px 5px #000000;
+}
+
+
+#welcome-title{
+  font-family: 'Rock Salt', cursive !important;
+  text-shadow: 5px 5px 5px #000000;
+  font-size: 60px;
+  color: #fff;
+  z-index: 10000;
+  text-align: center; 
+  margin-top: 5%;
+}
+
+#home {
+ background: image-url('logo.png') no-repeat center center fixed; 
+ background-size: cover;
+ font-size: 23px;
+ height: 100vh;
+
+}
+
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+#enter {
+  color: #fff !important;
+  text-align: center !important;
+  margin-top: 30%;
+  text-shadow: 0px -1px 5px #c2e0bc;
+  text-decoration: none !important;
+}
+
+#summary {
+  width:800px;
+}
+
+#subheader {
+  text-shadow:-3px 3px 3px #000000;
+  font-family: 'Rock Salt', cursive !important;
+  margin-bottom: 14px;
+  margin-top: -2px;
+  color: white;
+  font-size: 25px;
+}
